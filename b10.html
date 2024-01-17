@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function tong(arr) {
+        let maxSum = -Infinity;
+        let currentSum = 0;
+        let start = 0;
+        let end = 0;
+        let s = 0;
+        for (let i = 0; i < arr.length; i++) {
+          currentSum += arr[i];
+          if (currentSum > maxSum) {
+            maxSum = currentSum;
+            start = s;
+            end = i;
+          }
+          if (currentSum < 0) {
+            currentSum = 0;
+            s = i + 1;
+          }
+        }
+        return arr.slice(start, end + 1);
+      }
+      let arr = [-2, -3, 4, -1, -2, 1, 5, -3];
+      console.log(tong(arr));
+    </script>
+  </body>
+</html>
